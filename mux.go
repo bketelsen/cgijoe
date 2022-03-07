@@ -10,7 +10,7 @@ import (
 	"sync"
 )
 
-type HandlerFunction func(request *http.Request) string
+type HandlerFunction func(request *http.Request)
 
 // Mux represents an HTTP request multiplexer.
 type Mux struct {
@@ -249,7 +249,7 @@ func (m *Mux) Serve(r *http.Request) {
 			}
 			r = r.WithContext(ctx)
 		}
-		println(h(r))
+		h(r)
 		return
 
 	}
