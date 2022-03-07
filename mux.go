@@ -265,7 +265,7 @@ func (m *Mux) Serve(r *http.Request) {
 		status = http.StatusMethodNotAllowed
 	}
 	text := http.StatusText(status)
-	m.text(status, text)
+	TEXT(status, text)
 
 }
 
@@ -354,19 +354,19 @@ func (m *Mux) NotFound(h func(r *http.Request, methodMismatch bool) string) {
 	m.notFoundHandler = h
 }
 
-func (m *Mux) html(status int, response string) {
+func HTML(status int, response string) {
 	println("Content-Type: text/html")
 	println("Status:", http.StatusText(status))
 	println("")
 	println(response)
 }
-func (m *Mux) json(status int, response string) {
+func JSON(status int, response string) {
 	println("Content-Type: application/json")
 	println("Status:", http.StatusText(status))
 	println("")
 	println(response)
 }
-func (m *Mux) text(status int, response string) {
+func TEXT(status int, response string) {
 	println("Content-Type: text/plain")
 	println("Status:", http.StatusText(status))
 	println("")
