@@ -356,20 +356,17 @@ func (m *Mux) NotFound(h func(r *http.Request, methodMismatch bool) string) {
 
 func HTML(status int, response string) {
 	println("Content-Type: text/html")
-	println("Status:", http.StatusText(status)+"\n")
-	println("\n")
+	println("Status ", status, http.StatusText(status)+"\n")
 	println(response)
 }
 func JSON(status int, response string) {
 	println("Content-Type: application/json")
-	println("Status:", http.StatusText(status)+"\n")
-	println("\n")
+	println("Status ", status, http.StatusText(status)+"\n")
 	println(response)
 }
 func TEXT(status int, response string) {
 	println("Content-Type: text/plain")
-	println("Status:", http.StatusText(status), "\n")
-	println("\n")
+	println("Status ", status, http.StatusText(status), "\n")
 	println(response)
 }
 
